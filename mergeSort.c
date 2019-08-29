@@ -3,10 +3,11 @@
 #include<conio.h>
 
 int main(){
-    int meuVetor[9] = {2,4,3,1,66,51,94,32,7};
-    int comeco = 0, fim = 8;
+    int meuVetor[9] = {2,4,3,1,66,51,94,32,7}; // inserção de valores no vetor
+    int comeco = 0, fim = 9; // definição do parâmetro de início e fim
     int i;
 
+    // impressão do vetor desordenado
     printf("\n---------------------------------");
     printf("\nDESORDENADO");
     printf("\n---------------------------------");
@@ -20,8 +21,9 @@ int main(){
     printf("%d \n", meuVetor[7]);
     printf("%d \n", meuVetor[8]);
 
-    mergeSort(meuVetor, comeco, fim);
+    mergeSort(meuVetor, comeco, fim); // chamada da função de ordenação com os parâmetros definidos anteriormente
 
+    // impressão dos valores ordenados
     printf("\n---------------------------------");
     printf("\nORDENADO");
     printf("\n---------------------------------");
@@ -40,16 +42,15 @@ int main(){
 
 void merge(int vetor[], int comeco, int meio, int fim) {
     int com1 = comeco, com2 = meio+1, comAux = 0, tam = fim-comeco+1;
-    int *vetAux;
+    int *vetAux; // cria um novo vetor que vai manter o resultado da ordenação dos 2 sub-vetores
     vetAux = (int*)malloc(tam * sizeof(int));
 
-
     while(com1 <= meio && com2 <= fim){
-        if(vetor[com1] < vetor[com2]) {
-            vetAux[comAux] = vetor[com1];
+        if(vetor[com1] < vetor[com2]) { // aqui é feita a comparação dos valores
+            vetAux[comAux] = vetor[com1]; // atribui ao vetor auxiliar o valor 1
             com1++;
         } else {
-            vetAux[comAux] = vetor[com2];
+            vetAux[comAux] = vetor[com2]; // atribui ao vetor auxiliar o valor 2
             com2++;
         }
         comAux++;
@@ -70,14 +71,14 @@ void merge(int vetor[], int comeco, int meio, int fim) {
     for(comAux = comeco; comAux <= fim; comAux++){    //Move os elementos de volta para o vetor original
         vetor[comAux] = vetAux[comAux-comeco];
     }
-    free(vetAux);
+    free(vetAux); // libera memoria ocupada pelo vetor auxiliar
 }
 
 void mergeSort(int vetor[], int comeco, int fim){
-    if (comeco < fim) {
-        int meio = (fim+comeco)/2;
-        mergeSort(vetor, comeco, meio);
-        mergeSort(vetor, meio+1, fim);
-        merge(vetor, comeco, meio, fim);
+    if (comeco < fim) { // o parâmetro de comeco tem que ser obrigatoriamente menor que o parametro fim
+        int meio = (fim+comeco)/2; // definição da variável do meio
+        mergeSort(vetor, comeco, meio); // primeira divisão, chama a função recursivamente passando o meio como parametro no lugar do fim
+        mergeSort(vetor, meio+1, fim); // segunda divisão (meio + 1 caso o numero de elementos no vetor seja ímpar ele joga o numero que "sobrou" para a metade final)
+        merge(vetor, comeco, meio, fim); // "conquista"
     }
 }
