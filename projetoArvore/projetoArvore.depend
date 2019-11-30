@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1575154279 source:c:\users\marcika\desktop\desenvolvimento\ed2\ed2\arvorellrb.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"arvoreLLRB.h"
+
+1575136788 c:\users\marcika\desktop\desenvolvimento\ed2\ed2\arvorellrb.h
+
+1575147333 source:c:\users\marcika\desktop\desenvolvimento\ed2\ed2\principal.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"arvoreLLRB.h"
+
