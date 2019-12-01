@@ -10,6 +10,7 @@ void posOrdem_arvLLRB(arvoreLLRB *raiz);
 
 int consulta_arvoreLLRB(arvoreLLRB *raiz, int valor);
 
-int insere_arvoreLLRB(arvoreLLRB *raiz, int valor);
+//int insere_arvoreLLRB(arvoreLLRB *raiz, int valor);
+int insere_arvoreLLRB(arvoreLLRB *raiz, struct pessoa p);
 
 int remove_arvoreLLRB(arvoreLLRB *raiz, int valor);

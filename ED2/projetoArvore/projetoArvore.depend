@@ -1,16 +1,20 @@
 # depslib dependency file v1.0
-1575161196 source:c:\users\marcika\desktop\desenvolvimento\ed2\ed2\arvorellrb.c
+1575179181 source:c:\users\marcika\desktop\desenvolvimento\ed2\ed2\arvorellrb.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
+	"projetoArvore/pessoa.h"
 	"arvoreLLRB.h"
 
-1575161210 c:\users\marcika\desktop\desenvolvimento\ed2\ed2\arvorellrb.h
+1575165342 c:\users\marcika\desktop\desenvolvimento\ed2\ed2\arvorellrb.h
 
-1575161606 source:c:\users\marcika\desktop\desenvolvimento\ed2\ed2\principal.c
+1575180092 source:c:\users\marcika\desktop\desenvolvimento\ed2\ed2\principal.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<time.h>
+	"projetoArvore/pessoa.h"
 	"arvoreLLRB.h"
+
+1575164796 c:\users\marcika\desktop\desenvolvimento\ed2\ed2\projetoarvore\pessoa.h
 

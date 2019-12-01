@@ -2,19 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "projetoArvore/pessoa.h"
 #include "arvoreLLRB.h"
 
 #define N 15000
-
-// Struct com base no csv
-struct pessoa {
-  int p;
-  char nome[30];
-  char idade[2];
-  char empresa[30];
-  char departamento[50];
-  char salario[10];
-};
 
 // variavel global
 struct pessoa p[N];
@@ -29,23 +20,29 @@ int main(){
     int x, count;
 
     readPessoa();
-    //printPessoa();
 
     // inserção na árvore rubro negra
-    clock_t ini = clock();
+    clock_t clockInsertLLRB = clock();
     for(count = 1; count <= N; count++){
-        insere_arvoreLLRB(raiz, p[count].p);
-        //printf("\n%d", p[count].p);
+        insere_arvoreLLRB(raiz, p[count]);
     }
-    printf("\nA insercao na arvore Rubro negra foi executada em %f segundos\n", ((double)clock() - ini) / CLOCKS_PER_SEC);
+    printf("\nA insercao na arvore Rubro negra foi executada em %f segundos\n", ((double)clock() - clockInsertLLRB) / CLOCKS_PER_SEC);
 
-    printf("\nPre ordem\n");
-    //preOrdem_arvLLRB(raiz);
-    /*printf("\nEm ordem\n");
-    emOrdem_arvLLRB(raiz);
-    printf("\nPos ordem\n");
-    posOrdem_arvLLRB(raiz);
-*/
+    printf("\nBusca elementos pesquisa\n");
+    printf("\n-----------------------------------------------------------\n");
+
+    clock_t iniBuscaRemoveLLRB = clock();
+    buscaElementosPesquisa_arvLLRB(raiz);
+    printf("\nA operacao de busca dos 10 elementos + remocao do filho desejado na arvore Rubro negra foi executada em %f segundos\n",
+            ((double)clock() - iniBuscaRemoveLLRB) / CLOCKS_PER_SEC);
+    printf("\nBusca elementos pos operacoes\n");
+    printf("\n-----------------------------------------------------------\n");
+
+    clock_t iniImprimeLLRB = clock();
+    imprimeElementosPosExclusao_arvLLRB(raiz);
+    printf("\nA operacao de impressao dos 10 elementos apos a remocao dos nos na arvore Rubro negra foi executada em %f segundos\n",
+            ((double)clock() - iniImprimeLLRB) / CLOCKS_PER_SEC);
+
     return 0;
 }
 
